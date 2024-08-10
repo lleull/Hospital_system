@@ -16,7 +16,15 @@ import { Input } from "@/components/ui/input"
 import { Button } from "../ui/button"
 import CustomFormField from "../ui/customFormField"
 import Usericon from "/assets/icons/user.svg"
-const formSchema = z.object({
+export enum FormFieldType {
+    INPUT = "input",
+    TEXTAREA = "textarea",
+    PHONE_INPUT = "phoneInput",
+    CHECKBOX = "checkbox",
+    DATE_PICKER = "datePicker",
+    SELECT = "select",
+    SKELETON = "skeleton",
+} const formSchema = z.object({
     username: z.string().min(2, {
         message: "Username must be at least 2 characters.",
     }),
@@ -47,7 +55,7 @@ const Patientform = () => {
                     <p className="text-dark-700">Schedule your first appointment.</p>
                 </section>
 
-                <CustomFormField name="name" iconsAlt="user" label="name" iconSrc={Usericon} placeholder="Jhon Doe" fieldType={formSchema} fieldType control={form.control} />
+                <CustomFormField name="Leul" iconsAlt="user" label="name" iconSrc={Usericon} placeholder="Jhon Doe" fieldType={FormFieldType.INPUT} control={form.control} />
                 <Button type="submit">Submit</Button>
             </form>
         </Form>
