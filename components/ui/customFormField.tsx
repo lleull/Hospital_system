@@ -3,7 +3,8 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 import { Input } from './input'
 import { Control } from 'react-hook-form'
 import Image from "next/image";
-// import formContr
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 export enum FormFieldType {
     INPUT = "input",
     TEXTAREA = "textarea",
@@ -13,8 +14,6 @@ export enum FormFieldType {
     SELECT = "select",
     SKELETON = "skeleton",
 }
-
-
 interface CustomProps {
     control: Control<any>,
     fieldType: FormFieldType,
@@ -23,7 +22,7 @@ interface CustomProps {
     label?: string,
     iconSrc: string,
     placeholder?: string,
-    disabled: boolean,
+    disabled?: boolean,
     dateFormat?: string,
     showTimeSelect?: boolean,
     children?: React.ReactNode,
@@ -48,6 +47,24 @@ const RenderField = ({ field, props }: { field: any, props: CustomProps }) => {
                     </FormControl>
 
                 </div>
+            )
+        case FormFieldType.PHONE_INPUT:
+            return (
+
+
+                < FormControl >
+                    <PhoneInput
+                        defaultCountry='ET'
+                        placeholder="Enter phone number"
+                        international
+                        withCountryCallingCode
+                        value={field.value as E164Number | undefined}
+                        onChange={field.onChange}
+                        className='input-phone'
+                    />
+
+                </FormControl >
+
             )
         default:
             break;

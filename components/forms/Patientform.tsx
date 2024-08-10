@@ -16,6 +16,11 @@ import { Input } from "@/components/ui/input"
 import { Button } from "../ui/button"
 import CustomFormField from "../ui/customFormField"
 import Usericon from "/assets/icons/user.svg"
+import Emailicon from "/assets/icons/email.svg"
+import SubmtButton from "../ui/SubmtButton"
+import { useState } from "react"
+
+
 export enum FormFieldType {
     INPUT = "input",
     TEXTAREA = "textarea",
@@ -32,6 +37,7 @@ export enum FormFieldType {
 
 const Patientform = () => {
     // 1. Define your form.
+    const [isLoading, setisLoading] = useState(false)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -55,7 +61,32 @@ const Patientform = () => {
                     <p className="text-dark-700">Schedule your first appointment.</p>
                 </section>
 
-                <CustomFormField name="Leul" iconsAlt="user" label="name" iconSrc={Usericon} placeholder="Jhon Doe" fieldType={FormFieldType.INPUT} control={form.control} />
+                <CustomFormField
+                    name="name"
+                    iconsAlt="user"
+                    label="Full name"
+                    iconSrc={Usericon}
+                    placeholder="Gebereal Hiru"
+                    fieldType={FormFieldType.INPUT}
+                    control={form.control}
+                />
+                <CustomFormField
+                    name="email"
+                    iconsAlt="Email"
+                    label="Email"
+                    iconSrc={Emailicon}
+                    placeholder="Geberea@gmail.com"
+                    fieldType={FormFieldType.INPUT}
+                    control={form.control}
+                />
+                <CustomFormField
+                    name="phone"
+                    label="Phone"
+                    placeholder="+(251) 965787899"
+                    fieldType={FormFieldType.PHONE_INPUT}
+                    control={form.control}
+                />
+                <SubmtButton isLoading={isLoading}>Get Started</SubmtButton>
                 <Button type="submit">Submit</Button>
             </form>
         </Form>
