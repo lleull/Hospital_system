@@ -14,11 +14,10 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "../ui/button"
+import CustomFormField from "../ui/customFormField"
+import Usericon from "/assets/icons/user.svg"
 const formSchema = z.object({
     username: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-    }),
-    password: z.string().min(2, {
         message: "Username must be at least 2 characters.",
     }),
 })
@@ -29,7 +28,6 @@ const Patientform = () => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             username: "",
-            password: ""
         },
     })
 
@@ -42,39 +40,14 @@ const Patientform = () => {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex-1">
-                <section></section>
-                <FormField
-                    control={form.control}
-                    name="username"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Username</FormLabel>
-                            <FormControl>
-                                <Input placeholder="shadcn" {...field} />
-                            </FormControl>
-                            <FormDescription>
-                                This is your public display name.
-                            </FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Username</FormLabel>
-                            <FormControl>
-                                <Input placeholder="shadcn" {...field} />
-                            </FormControl>
-                            <FormDescription>
-                                This is your public display name.
-                            </FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
+                <section className="mb-12 space-y-4">
+                    <h1 className="header">
+                        Hi, There👋
+                    </h1>
+                    <p className="text-dark-700">Schedule your first appointment.</p>
+                </section>
+
+                <CustomFormField name="name" iconsAlt="user" label="name" iconSrc={Usericon} placeholder="Jhon Doe" fieldType={formSchema} fieldType control={form.control} />
                 <Button type="submit">Submit</Button>
             </form>
         </Form>
