@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from './button'
 import { Divide } from 'lucide-react'
 import Image from 'next/image'
-import spinner from "assets/icons/loader.svg"
+import spinner from "/assets/icons/loader.svg"
 interface ButtonProps {
     isLoading: boolean,
     className?: string,
@@ -10,7 +10,7 @@ interface ButtonProps {
 
 
 }
-const SubmtButton = ({ isLoading, className, children }: ButtonProps) => {
+const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
     return (
         <Button type='submit' disabled={isLoading} className={className ?? "shad-primary-btn w-full"}>
             {isLoading ?
@@ -30,4 +30,4 @@ const SubmtButton = ({ isLoading, className, children }: ButtonProps) => {
     )
 }
 
-export default SubmtButton
+export default SubmitButton

@@ -17,7 +17,7 @@ import { Button } from "../ui/button"
 import CustomFormField from "../ui/customFormField"
 import Usericon from "/assets/icons/user.svg"
 import Emailicon from "/assets/icons/email.svg"
-import SubmtButton from "../ui/SubmtButton"
+import SubmitButton from "../ui/SubmitButton"
 import { useState } from "react"
 
 
@@ -86,7 +86,7 @@ const Patientform = () => {
                     fieldType={FormFieldType.PHONE_INPUT}
                     control={form.control}
                 />
-                <SubmtButton isLoading={isLoading}>Get Started</SubmtButton>
+                <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
                 <Button type="submit">Submit</Button>
             </form>
         </Form>
