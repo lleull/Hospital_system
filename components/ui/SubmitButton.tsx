@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from './button'
-import { Divide } from 'lucide-react'
 import Image from 'next/image'
 import spinner from "/assets/icons/loader.svg"
 interface ButtonProps {
@@ -22,8 +21,10 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
                         height={24}
                         className='animate-spin'
                     />
+
                     Loading...
                 </div> : children}
+
 
         </Button>
 

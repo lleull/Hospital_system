@@ -33,12 +33,13 @@ export default function Home() {
         </div>
 
       </section>
+
       <Image
         src={onBoarding}
         height={1000}
         width={1000}
         alt="logo"
-        className="mb-12 h-10 w-fit side-img max-w-[50%] "
+        className="mb-12 h-10 pb-5 pt-5 w-fit side-img max-w-[50%] rounded-l"
       />
 
     </div>
