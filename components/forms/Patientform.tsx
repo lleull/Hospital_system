@@ -20,6 +20,7 @@ import Emailicon from "/assets/icons/email.svg"
 import SubmitButton from "../ui/SubmitButton"
 import { useState } from "react"
 import UserFormValidation from "@/lib/validation"
+import { useRouter } from "next/navigation"
 
 export enum FormFieldType {
     INPUT = "input",
@@ -31,10 +32,11 @@ export enum FormFieldType {
     SKELETON = "skeleton",
 }
 // const formSchema = z.object({
-//     username: z.string().min(2, {
+//     name: z.string().min(2, {
 //         message: "Username must be at least 2 characters.",
 //     }),
 // })
+const router = useRouter()
 
 const Patientform = () => {
     // 1. Define your form.
@@ -42,17 +44,29 @@ const Patientform = () => {
     const form = useForm<z.infer<typeof UserFormValidation>>({
         resolver: zodResolver(UserFormValidation),
         defaultValues: {
-            username: "",
+            name: "",
             email: "",
             phone: ""
         },
     })
 
     // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof UserFormValidation>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+    async function onSubmit({ name, phone, email }: z.infer<typeof UserFormValidation>) {
+        setisLoading(true)
+
+
+        try {
+            // const userdata = { name, phone, email }
+            // const user = await createUser(userdata)
+            // if (user) router.push(`/patients/${user.$id}/register`)
+
+
+
+        } catch (e) {
+            console.log("e", e)
+
+        }
+        setisLoading(false)
     }
     return (
         <Form {...form}>
