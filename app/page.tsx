@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
 import Logos from "/assets/icons/logo-full.svg"
@@ -5,7 +7,11 @@ import onBoarding from "/assets/images/onboarding-img.png"
 
 import Patientform from "@/components/forms/Patientform";
 import { Link } from "lucide-react";
+import { useEffect } from "react";
+import { Account, ID } from "appwrite";
+import { Auth } from "@/lib/appwrite";
 export default function Home() {
+
   return (
     <div className="flex min-h-screen h-screen ">
 
@@ -17,7 +23,7 @@ export default function Home() {
             height={1000}
             width={1000}
             alt="logo"
-            className="mb-12 h-10 w-fit"
+            className="mb-12  w-fit"
           />
           <Patientform />
           <div className="text-14-regular mt-20 flex justify-between">

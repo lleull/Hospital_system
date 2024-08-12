@@ -36,9 +36,9 @@ export enum FormFieldType {
 //         message: "Username must be at least 2 characters.",
 //     }),
 // })
-const router = useRouter()
 
 const Patientform = () => {
+    const router = useRouter()
     // 1. Define your form.
     const [isLoading, setisLoading] = useState(false)
     const form = useForm<z.infer<typeof UserFormValidation>>({
