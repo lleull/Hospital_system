@@ -6,10 +6,7 @@ import Logos from "/assets/icons/logo-full.svg"
 import onBoarding from "/assets/images/onboarding-img.png"
 
 import Patientform from "@/components/forms/Patientform";
-import { Link } from "lucide-react";
-import { useEffect } from "react";
-import { Account, ID } from "appwrite";
-import { Auth } from "@/lib/appwrite";
+import Link from "next/link";
 export default function Home() {
 
   return (
