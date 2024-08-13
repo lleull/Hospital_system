@@ -5,6 +5,10 @@ import { Control } from 'react-hook-form'
 import Image from "next/image";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import calendar from "/assets/icons/calendar.svg"
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 export enum FormFieldType {
     INPUT = "input",
     TEXTAREA = "textarea",
@@ -20,7 +24,7 @@ interface CustomProps {
     name: string,
     iconsAlt: string,
     label?: string,
-    iconSrc: string,
+    iconSrc?: string,
     placeholder?: string,
     disabled?: boolean,
     dateFormat?: string,
@@ -52,7 +56,7 @@ const RenderField = ({ field, props }: { field: any, props: CustomProps }) => {
             return (
 
 
-                < FormControl >
+                <FormControl >
                     <PhoneInput
                         defaultCountry='ET'
                         placeholder="Enter phone number"
@@ -66,6 +70,26 @@ const RenderField = ({ field, props }: { field: any, props: CustomProps }) => {
                 </FormControl >
 
             )
+        case FormFieldType.DATE_PICKER:
+            return (
+                <div className='flex rounded-md border border-dark-500 bg-dark-400'>
+
+                    <Image
+                        src={calendar}
+                        height={24}
+                        width={24}
+                        alt="logo"
+                        className='ml-2'
+                    />
+                    <FormControl>
+                        <DatePicker selected={field.value} onChange={(date) => field.onChange(date)} />
+                    </FormControl>
+
+
+                </div>
+            )
+        case FormFieldType.SKELETON:
+            return;
         default:
             break;
     }

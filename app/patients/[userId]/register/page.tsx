@@ -26,7 +26,7 @@ const Register = async ({ params: { userId } }: any) => {
                         className="mb-12  w-fit"
                     />
                     {/* <Patientform /> */}
-                    <RegisterForm />
+                    <RegisterForm user={user} />
                     <div className="text-14-regular mt-20 flex justify-between">
                         <p className="justify-items-end text-dark-600 xl:text-left">
 
@@ -46,7 +46,7 @@ const Register = async ({ params: { userId } }: any) => {
                 height={1000}
                 width={1000}
                 alt="logo"
-                className="side-img max-w-[390px]]"
+                className="side-img max-w-[390px]"
             />
 
         </div>

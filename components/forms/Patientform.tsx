@@ -31,11 +31,6 @@ export enum FormFieldType {
     SELECT = "select",
     SKELETON = "skeleton",
 }
-// const formSchema = z.object({
-//     name: z.string().min(2, {
-//         message: "Username must be at least 2 characters.",
-//     }),
-// })
 
 const Patientform = () => {
     const router = useRouter()
@@ -46,7 +41,9 @@ const Patientform = () => {
         defaultValues: {
             name: "",
             email: "",
-            phone: ""
+            phone: "",
+            birthDate: "",
+            gender: ""
         },
     })
 
@@ -105,9 +102,9 @@ const Patientform = () => {
                     placeholder="+(251) 965787899"
                     fieldType={FormFieldType.PHONE_INPUT}
                     control={form.control}
+                    iconsAlt="phone"
                 />
                 <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
-                <Button type="submit">Submit</Button>
             </form>
         </Form>
     )
